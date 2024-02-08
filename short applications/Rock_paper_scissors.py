@@ -92,8 +92,16 @@ elif user_option == 'tijeras':
 import random  #importa la función random al código
 over= False
 confirmation = 'y'
+pc_wins= 0
+user_wins=0
+rounds=1
+empates = 0
 
 while over == False:
+    print('*' * 10)
+    print(' ROUND ', rounds)
+    print('*' * 10)
+    
     options = ('piedra', 'papel', 'tijeras') 
     continua = ('y','n')
     user_option=input('Elige => Piedra, papel o tijeras: ')
@@ -113,34 +121,47 @@ while over == False:
     #Caso de Empate
     if user_option == pc_option:
         print('Empate')
+        empates += 1
 
     #En caso de elegir piedra
     elif user_option == 'piedra':
         if pc_option == 'tijeras':
             print('Piedra gana a tijeras')
             print('Ganó el usuario')
+            user_wins += 1
         else:
             print('Papel gana a piedra')
             print('ganó la PC')
+            pc_wins += 1
 
     #En caso de elegir papel        
     elif user_option == 'papel':
         if pc_option == 'tijeras':
             print('Tijeras gana a papel')
             print('Ganó el PC')
+            pc_wins += 1
         else:
             print('Papel gana a piedra')
             print('ganó el usuario')
+            user_wins += 1
 
     #En caso de elegir tijeras       
     elif user_option == 'tijeras':
         if pc_option == 'papel':
             print('Tijeras gana a papel')
             print('Ganó el usuario')
+            user_wins += 1
         else:
             print('Piedra gana a tijeras')
             print('ganó el PC')
-    
+            pc_wins += 1
+    print('\n')
+    print('Así van las cuentas: ')
+    print('Victorias del usuario: ', user_wins)
+    print('Victorias de la PC: ', pc_wins)
+    print('Empates: ', empates)
+    print('\n')
+    rounds += 1
     confirmation = input ('¿Quieres jugar otra vez? Y/N ')
     confirmation=confirmation.lower()
     while not confirmation in continua:
@@ -149,6 +170,22 @@ while over == False:
     
     if confirmation == 'n':
         over= True
+        if user_wins > pc_wins:
+            print('*' * 35)
+            print('El usuario es el ganador esta vez')
+            print('*' * 35)
+        elif user_wins < pc_wins:
+            print('*' * 30)
+            print('El PC es el ganador esta vez')
+            print('*' * 30)
+        else:
+            print('*' * 20)
+            print('Es un rotundo empate')
+            print('*' * 20)
+            
+            
+
+            
         
 
     
