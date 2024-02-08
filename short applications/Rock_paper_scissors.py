@@ -1,4 +1,4 @@
-#------------------------- Versión 1 para piedra papel o tijera  ----------------------------------
+#------------------------- Versión 1 para piedra papel o tijera  -----------------------------------
 '''
 user_option=input('Elige => Piedra, papel o tijeras: ')
 user_option=user_option.lower() #evito que por las mayusculas no las reconozca
